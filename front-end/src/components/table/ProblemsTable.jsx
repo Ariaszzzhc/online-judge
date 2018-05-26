@@ -33,7 +33,7 @@ export default class ProblemsTable extends React.Component {
                     this.props.problems.map((problem) =>
                         <tr key={problem.id}>
                             <th scope="row">{problem.indexInProblemSet}</th>
-                            <td><Link to={`/problem/${problem.id}`}>{problem.title}</Link></td>
+                            <td><Link to={`/problems/${problem.id}`}>{problem.title}</Link></td>
                             <td>{problem.difficulty}</td>
                             <td>{problem.submitCount}</td>
                             <td>{problem.acceptCount}</td>

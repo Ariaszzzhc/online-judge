@@ -10,6 +10,7 @@ import About from "./components/page/About";
 import Login from "./components/page/Login";
 import ProblemSets from "./components/page/ProblemSets";
 import Problems from "./components/page/Problems";
+import Problem from "./components/page/Problem";
 
 const Main = () => (
     <main>
@@ -21,6 +22,7 @@ const Main = () => (
             <Route exact path="/problemSets/practice" render={() => <ProblemSets category="Practice"/>}/>
             <Route exact path="/problemSets/contest" render={() => <ProblemSets category="Contest"/>}/>
             <Route exact path="/problemSets/:number" component={Problems}/>
+            <Route exact path="/problems/:number" component={Problem}/>
         </Switch>
     </main>
 );

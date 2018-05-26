@@ -3,7 +3,7 @@ import ProblemSetListGroup from "../list/ProblemSetListGroup";
 import ProblemSetTable from "../table/ProblemSetTable";
 import {Link} from "react-router-dom";
 import {Breadcrumb, BreadcrumbItem} from "reactstrap";
-import ProblemSetAPI from "../../api";
+import ProblemSetAPI from "../../api/ProblemSetAPI";
 
 export default class ProblemSets extends React.Component {
     constructor(props) {

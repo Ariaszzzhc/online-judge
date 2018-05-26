@@ -3,7 +3,7 @@ import ProblemsTable from "../table/ProblemsTable";
 import ProblemsListGroup from "../list/ProblemsListGroup";
 import {Link} from "react-router-dom";
 import {Breadcrumb, BreadcrumbItem} from "reactstrap";
-import ProblemSetAPI from "../../api";
+import ProblemSetAPI from "../../api/ProblemSetAPI";
 import StringUtils from "../../utils/StringUtils";
 
 export default class Problems extends React.Component {

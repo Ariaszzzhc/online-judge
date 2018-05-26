@@ -1,4 +1,4 @@
-import {Setting} from "./config";
+import {Setting} from "../config";
 
 export default class ProblemSetAPI {
     static getProblemSets(category: String) {
@@ -11,9 +11,5 @@ export default class ProblemSetAPI {
 
     static getProblems(problemSetId: Number) {
         return fetch(`${Setting.backEndUrl}/problemSets/${problemSetId}/problems`)
-    }
-
-    static getProblem(problemId: Number) {
-        return fetch(`${Setting.backEndUrl}/problems/${problemId}`)
     }
 }
