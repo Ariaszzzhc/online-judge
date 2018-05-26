@@ -8,7 +8,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./components/page/Home";
 import About from "./components/page/About";
 import Login from "./components/page/Login";
-import ProblemSet from "./components/page/ProblemSet";
+import ProblemSets from "./components/page/ProblemSets";
 import Problems from "./components/page/Problems";
 
 const Main = () => (
@@ -17,10 +17,10 @@ const Main = () => (
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
             <Route exact path="/login" component={Login}/>
-            <Route exact path="/problemSet" component={ProblemSet}/>
-            <Route exact path="/problemSet/practice" component={ProblemSet}/>
-            <Route exact path="/problemSet/contest" component={ProblemSet}/>
-            <Route exact path="/problemSet/:number" component={Problems}/>
+            <Route exact path="/problemSets" render={() => <ProblemSets category="Practice"/>}/>
+            <Route exact path="/problemSets/practice" render={() => <ProblemSets category="Practice"/>}/>
+            <Route exact path="/problemSets/contest" render={() => <ProblemSets category="Contest"/>}/>
+            <Route exact path="/problemSets/:number" component={Problems}/>
         </Switch>
     </main>
 );

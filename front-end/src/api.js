@@ -2,12 +2,18 @@ import {Setting} from "./config";
 
 export default class ProblemSetAPI {
     static getProblemSets(category: String) {
-        let searchParams = new URLSearchParams();
-        searchParams.append("category", category);
-        return fetch(`${Setting.backEndUrl}/problemSets/search?${searchParams.toString()}`)
+        return fetch(`${Setting.backEndUrl}/problemSets/${category}`)
     }
 
     static getProblemSet(problemSetId: Number) {
         return fetch(`${Setting.backEndUrl}/problemSets/${problemSetId}`)
+    }
+
+    static getProblems(problemSetId: Number) {
+        return fetch(`${Setting.backEndUrl}/problemSets/${problemSetId}/problems`)
+    }
+
+    static getProblem(problemId: Number) {
+        return fetch(`${Setting.backEndUrl}/problems/${problemId}`)
     }
 }

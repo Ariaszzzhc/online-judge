@@ -1,4 +1,4 @@
-package com.hiczp.onlinejudge.web.dao
+package com.hiczp.onlinejudge.shared.dao
 
 import org.springframework.data.repository.CrudRepository
 import java.util.*
@@ -29,4 +29,6 @@ data class ProblemSet(
     }
 }
 
-interface ProblemSetRepository : CrudRepository<ProblemSet, Long>
+interface ProblemSetRepository : CrudRepository<ProblemSet, Long> {
+    fun findByType(type: ProblemSet.Type): List<ProblemSet>
+}

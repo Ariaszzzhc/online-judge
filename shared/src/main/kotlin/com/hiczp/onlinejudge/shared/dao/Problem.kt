@@ -1,4 +1,4 @@
-package com.hiczp.onlinejudge.web.dao
+package com.hiczp.onlinejudge.shared.dao
 
 import org.springframework.data.repository.CrudRepository
 import javax.persistence.*
@@ -18,16 +18,38 @@ data class Problem(
         @Column(nullable = false, length = 64)
         var title: String,
 
-        @Column(nullable = false)
-        var submitUser: Long = 0,
+        @Column(nullable = false, length = 16)
+        @Enumerated(EnumType.STRING)
+        var difficulty: Difficulty,
 
         @Column(nullable = false)
-        var submitCount: Long = 0,
+        @Lob
+        var description: String,
 
-        @Column(nullable = false)
-        var acceptCount: Long = 0
-)
+        @Column
+        @Lob
+        var sampleInput: String,
+
+        @Column
+        @Lob
+        var sampleOutput: String,
+
+        @Column
+        @Lob
+        var input: String,
+
+        @Column
+        @Lob
+        var output: String
+) {
+    enum class Difficulty {
+        EASY,
+        NORMAL,
+        HARD
+    }
+}
 
 interface ProblemRepository : CrudRepository<Problem, Long> {
+    @Suppress("FunctionName")
     fun findByProblemSet_IdOrderByIndexInProblemSet(id: Long): List<Problem>
 }

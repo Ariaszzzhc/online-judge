@@ -1,3 +1,3 @@
 export const Setting = {
-    backEndUrl: 'http://localhost:8080'
+    backEndUrl: 'http://localhost:9001'
 };

@@ -1,9 +1,21 @@
 import React from 'react';
 import {Table} from 'reactstrap';
 import {Link} from "react-router-dom";
+import ReactLoading from 'react-loading';
 
 export default class ProblemSetTable extends React.Component {
     render() {
+        if (this.props.problemSets === null) {
+            return (
+                <ReactLoading type="spin" color="#007bff" className="mx-auto"/>
+            )
+        }
+        if (this.props.problemSets.length === 0) {
+            return (
+                <p>No available ProblemSet</p>
+            )
+        }
+        // noinspection JSUnresolvedVariable
         return (
             <Table responsive hover>
                 <thead>
@@ -15,24 +27,16 @@ export default class ProblemSetTable extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><Link to="/problemSet/1">Basic Level Practice</Link></td>
-                    <td>System</td>
-                    <td>Practice</td>
-                    <td>Forever</td>
-                </tr>
-                <tr>
-                    <td><Link to="/problemSet/2">Advanced Level Practice</Link></td>
-                    <td>System</td>
-                    <td>Practice</td>
-                    <td>Forever</td>
-                </tr>
-                <tr>
-                    <td>Top Level Practice</td>
-                    <td>System</td>
-                    <td>Practice</td>
-                    <td>Forever</td>
-                </tr>
+                {
+                    this.props.problemSets.map((problemSet) =>
+                        <tr key={problemSet.id}>
+                            <td><Link to={`/problemSets/${problemSet.id}`}>{problemSet.title}</Link></td>
+                            <td>{problemSet.contributor}</td>
+                            <td>{problemSet.type}</td>
+                            <td>{problemSet.expire === null ? "Forever" : problemSet.expire}</td>
+                        </tr>
+                    )
+                }
                 </tbody>
             </Table>
         );
