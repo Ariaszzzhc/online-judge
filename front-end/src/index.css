@@ -1,0 +1,17 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+main {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+code {
+    font-size: 80%;
+}
