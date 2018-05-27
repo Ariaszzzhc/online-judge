@@ -10,7 +10,7 @@ export default class SubmitHistoriesTable extends React.Component {
                 <ReactLoading type="spin" color="#007bff" className="mx-auto"/>
             )
         }
-        if (this.props.submitHistories.length === 0) {
+        if (this.props.submitHistories.content.length === 0) {
             return (
                 <p>No available SubmitHistory</p>
             )
