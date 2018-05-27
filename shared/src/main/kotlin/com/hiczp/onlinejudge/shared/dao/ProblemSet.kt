@@ -1,6 +1,7 @@
 package com.hiczp.onlinejudge.shared.dao
 
 import org.springframework.data.repository.CrudRepository
+import java.io.Serializable
 import java.util.*
 import javax.persistence.*
 
@@ -22,7 +23,7 @@ data class ProblemSet(
 
         @Column
         var expire: Date
-) {
+) : Serializable {
     enum class Type {
         PRACTICE,
         CONTEST

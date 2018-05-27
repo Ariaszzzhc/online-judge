@@ -1,6 +1,8 @@
 package com.hiczp.onlinejudge.shared.dao
 
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.repository.PagingAndSortingRepository
 import java.util.*
 import javax.persistence.*
 
@@ -47,8 +49,11 @@ enum class JudgeResult {
     ACCEPT
 }
 
-interface SubmitHistoryRepository : CrudRepository<SubmitHistory, Long> {
+@Suppress("FunctionName")
+interface SubmitHistoryRepository : PagingAndSortingRepository<SubmitHistory, Long> {
     fun countByProblem_Id(problemId: Long): Long
 
     fun countByProblem_IdAndJudgeResult(problemId: Long, judgeResult: JudgeResult): Long
+
+    fun findByProblem_ProblemSet_IdOrderBySubmitTimeDesc(problemSetId: Long, pageable: Pageable): Page<SubmitHistory>
 }

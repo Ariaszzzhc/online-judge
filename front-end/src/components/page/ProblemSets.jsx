@@ -24,7 +24,7 @@ export default class ProblemSets extends React.Component {
             })
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.fetchData(this.props.category)
     }
 

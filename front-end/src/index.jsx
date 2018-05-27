@@ -11,6 +11,7 @@ import Login from "./components/page/Login";
 import ProblemSets from "./components/page/ProblemSets";
 import Problems from "./components/page/Problems";
 import Problem from "./components/page/Problem";
+import SubmitHistories from "./components/page/SubmitHistories";
 
 const Main = () => (
     <main>
@@ -23,6 +24,7 @@ const Main = () => (
             <Route exact path="/problemSets/contest" render={() => <ProblemSets category="Contest"/>}/>
             <Route exact path="/problemSets/:number" component={Problems}/>
             <Route exact path="/problems/:number" component={Problem}/>
+            <Route exact path="/submitHistories/:number" component={SubmitHistories}/>
         </Switch>
     </main>
 );

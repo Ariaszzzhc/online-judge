@@ -44,7 +44,7 @@ export default class Problems extends React.Component {
                         <BreadcrumbItem tag={Link} to="/">Home</BreadcrumbItem>
                         <BreadcrumbItem tag={Link} to="/problemSets">Problem Set</BreadcrumbItem>
                         <BreadcrumbItem tag={Link}
-                                        to={`/problemSets/${this.state.problemSetType === null ? "" : this.state.problemSetType}`}>
+                                        to={`/problemSets/${this.state.problemSetType === null ? "" : this.state.problemSetType.toLowerCase()}`}>
                             {this.state.problemSetType === null ? "Loading..." : this.state.problemSetType}
                         </BreadcrumbItem>
                         <BreadcrumbItem active>

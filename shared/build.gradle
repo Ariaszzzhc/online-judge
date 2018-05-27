@@ -14,3 +14,9 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-hibernate5
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-hibernate5', version: '2.9.5'
 }
+
+//amqp
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp'
+}

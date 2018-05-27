@@ -1,6 +1,7 @@
 package com.hiczp.onlinejudge.shared.dao
 
 import org.springframework.data.repository.CrudRepository
+import java.io.Serializable
 import javax.persistence.*
 
 @Entity
@@ -41,7 +42,7 @@ data class Problem(
         @Column
         @Lob
         var output: String
-) {
+) : Serializable {
     enum class Difficulty {
         EASY,
         NORMAL,

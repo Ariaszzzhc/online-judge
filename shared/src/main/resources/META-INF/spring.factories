@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.hiczp.onlinejudge.shared.autoConfigure.ComponentScanAutoConfigure
+  com.hiczp.onlinejudge.shared.autoConfigure.ComponentScanAutoConfigure,\
+  com.hiczp.onlinejudge.shared.autoConfigure.RabbitMQConfiguration
