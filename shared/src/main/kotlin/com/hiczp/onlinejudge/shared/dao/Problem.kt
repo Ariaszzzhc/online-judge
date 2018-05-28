@@ -37,7 +37,7 @@ data class Problem(
 
         @Column
         @Lob
-        var input: String,
+        var input: String? = null,
 
         @Column
         @Lob

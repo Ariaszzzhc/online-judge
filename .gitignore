@@ -1,6 +1,7 @@
 .gradle
-build
+build/
 /gradlew.bat
+work directory/
 
 ### IntelliJ IDEA ###
 .idea

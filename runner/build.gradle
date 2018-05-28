@@ -1,0 +1,32 @@
+group 'com.hiczp'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    compile project(':shared')
+}
+
+//spring cloud
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '2.0.0.M2'
+}
+
+//spring
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor
+    kapt group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
+}
+
+//driver
+dependencies {
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+}

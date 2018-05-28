@@ -27,7 +27,7 @@ export default class SubmitHistoriesTable extends React.Component {
                                 <th>Problem</th>
                                 <th>Submit Time</th>
                                 <th>Result</th>
-                                <th>Running Time</th>
+                                <th>Running Time(ms)</th>
                                 <th>User Nick</th>
                             </tr>
                             </thead>
@@ -42,7 +42,7 @@ export default class SubmitHistoriesTable extends React.Component {
                                                 {history.problem.title}
                                             </Link>
                                         </td>
-                                        <td>{history.submitTime}</td>
+                                        <td>{new Date(history.submitTime).toISOString()}</td>
                                         <td>{history.judgeResult}</td>
                                         <td>{history.runningTime === null ? "-" : history.runningTime}</td>
                                         <td>{history.user.nick}</td>
@@ -62,7 +62,7 @@ export default class SubmitHistoriesTable extends React.Component {
                             </PaginationItem>
                             {
                                 Array.from(new Array(this.props.submitHistories.totalPages), (val, index) => index).map(index =>
-                                    <PaginationItem disabled={this.props.submitHistories.number === index}>
+                                    <PaginationItem key={index} disabled={this.props.submitHistories.number === index}>
                                         <PaginationLink tag={Link} to={`?page=${index}`}>
                                             {index + 1}
                                         </PaginationLink>

@@ -3,3 +3,4 @@ rootProject.name = 'online-judge'
 include(':eureka-server')
 include(':shared')
 include(':web-api')
+include(':runner')

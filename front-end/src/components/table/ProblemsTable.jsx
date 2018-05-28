@@ -37,7 +37,7 @@ export default class ProblemsTable extends React.Component {
                             <td>{problem.difficulty}</td>
                             <td>{problem.submitCount}</td>
                             <td>{problem.acceptCount}</td>
-                            <td>{problem.submitCount === 0 ? 0 : (problem.acceptCount / problem.submitCount * 100)}%</td>
+                            <td>{problem.submitCount === 0 ? 0 : (problem.acceptCount / problem.submitCount * 100).toFixed(2)}%</td>
                         </tr>
                     )
                 }
