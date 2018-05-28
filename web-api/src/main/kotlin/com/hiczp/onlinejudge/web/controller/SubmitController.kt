@@ -1,10 +1,7 @@
 package com.hiczp.onlinejudge.web.controller
 
 import com.hiczp.onlinejudge.shared.autoConfigure.RabbitMQConfiguration
-import com.hiczp.onlinejudge.shared.dao.ProblemRepository
-import com.hiczp.onlinejudge.shared.dao.SubmitHistory
-import com.hiczp.onlinejudge.shared.dao.SubmitHistoryRepository
-import com.hiczp.onlinejudge.shared.dao.UserRepository
+import com.hiczp.onlinejudge.shared.dao.*
 import com.hiczp.onlinejudge.shared.message.PendingSubmission
 import com.hiczp.onlinejudge.web.model.SubmitFormModel
 import org.springframework.amqp.rabbit.core.RabbitTemplate
@@ -37,4 +34,7 @@ class SubmitController(private val rabbitTemplate: RabbitTemplate,
             }
         }
     }
+
+    @GetMapping("/checkAvailableLanguages")
+    fun checkAvailableLanguages() = Language.values()
 }

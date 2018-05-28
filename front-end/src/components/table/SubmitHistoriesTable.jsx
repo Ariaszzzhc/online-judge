@@ -26,6 +26,7 @@ export default class SubmitHistoriesTable extends React.Component {
                                 <th>#</th>
                                 <th>Problem</th>
                                 <th>Submit Time</th>
+                                <th>Language</th>
                                 <th>Result</th>
                                 <th>Running Time(ms)</th>
                                 <th>User Nick</th>
@@ -38,11 +39,15 @@ export default class SubmitHistoriesTable extends React.Component {
                                         <td scope="row">{history.problem.id}</td>
                                         <td>
                                             <Link to={`/problems/${history.problem.id}`}
-                                                  onClick={() => window.localStorage.setItem(`code-${history.problem.id}`, history.sourceCode)}>
+                                                  onClick={() => {
+                                                      window.localStorage.setItem(`language-${history.problem.id}`, history.language);
+                                                      window.localStorage.setItem(`code-${history.problem.id}`, history.sourceCode)
+                                                  }}>
                                                 {history.problem.title}
                                             </Link>
                                         </td>
-                                        <td>{new Date(history.submitTime).toISOString()}</td>
+                                        <td>{new Date(history.submitTime).toString()}</td>
+                                        <td>{history.language}</td>
                                         <td>{history.judgeResult}</td>
                                         <td>{history.runningTime === null ? "-" : history.runningTime}</td>
                                         <td>{history.user.nick}</td>

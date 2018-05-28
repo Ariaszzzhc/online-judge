@@ -17,6 +17,16 @@ self.MonacoEnvironment = {
     getWorker: () => new Worker('../../../node_modules/monaco-editor/esm/vs/editor/editor.worker')
 };
 
+const Options = (props) => {
+    if (props.array === null || props.array.length === 0) {
+        return <option value="C">C</option>
+    } else {
+        return props.array.map((it, i) =>
+            <option key={i} value={it}>{it}</option>
+        )
+    }
+};
+
 export default class Problem extends React.Component {
     constructor(props) {
         super(props);
@@ -28,7 +38,8 @@ export default class Problem extends React.Component {
             problemSetName: null,
             submitting: false,
             language: "C",
-            errorMessage: null
+            errorMessage: null,
+            availableLanguages: null
         };
 
         this.monacoEditor = null;
@@ -44,11 +55,26 @@ export default class Problem extends React.Component {
                     "problemSetId": response.problemSet.id,
                     "problemSetType": StringUtils.firstCharUpperCase(response.problemSet.type),
                     "problemSetName": response.problemSet.title
-                })
+                });
+                let language = window.localStorage.getItem(`language-${response.id}`);
+                if (language !== null) {
+                    this.setState({
+                        language: language
+                    })
+                }
             });
+
+        SubmitAPI.checkAvailableLanguages()
+            .then(response => response.json())
+            .then(json => {
+                this.setState({
+                    availableLanguages: json
+                })
+            })
     }
 
     componentWillUnmount() {
+        window.localStorage.setItem(`language-${this.state.problem.id}`, this.state.language);
         window.localStorage.setItem(`code-${this.state.problem.id}`, this.monacoEditor.getValue());
     }
 
@@ -168,7 +194,7 @@ export default class Problem extends React.Component {
                                     <div className="col-md-6 col-lg-3">
                                         <Input type="select" value={this.state.language}
                                                onChange={e => this.onLanguageChange(e)}>
-                                            <option>C</option>
+                                            <Options array={this.state.availableLanguages}/>
                                         </Input>
                                     </div>
                                 </div>

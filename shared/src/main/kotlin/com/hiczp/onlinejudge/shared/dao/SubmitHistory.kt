@@ -38,7 +38,9 @@ data class SubmitHistory(
 )
 
 enum class Language {
-    C
+    C,
+    CPP,
+    JAVA
 }
 
 enum class JudgeResult {
